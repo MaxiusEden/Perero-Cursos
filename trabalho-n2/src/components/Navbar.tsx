@@ -1,25 +1,34 @@
 import { Link } from 'react-router-dom';
-import { BookOpen } from 'lucide-react';
+import { BookOpen, Menu } from 'lucide-react';
 
-export function Navbar() {
-  return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
-      <div className="container">
-        <Link className="navbar-brand d-flex align-items-center gap-2" to="/">
-          <BookOpen size={24} />
-          Perero Cursos
-        </Link>
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav ms-auto">
-            <li className="nav-item">
-              <Link className="nav-link" to="/">Cursos</Link>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  );
+interface NavbarProps {
+  onToggleSidebar: () => void;
 }
+
+export const Navbar = ({ onToggleSidebar }: NavbarProps) => {
+  return (
+    <div className="d-flex justify-content-center align-items-center bg-dark p-3 mb-4 text-white w-100 position-relative">
+      <button 
+        className="btn btn-dark position-absolute start-0 ms-3" 
+        onClick={onToggleSidebar}
+      >
+        <Menu size={24} />
+      </button>
+      <Link className="d-flex align-items-center gap-2 text-white text-decoration-none me-4 fs-4" to="/">
+        <BookOpen size={24} />
+        Perero Cursos
+      </Link>
+      <ul className="nav">
+        <li className="nav-item">
+          <Link className="nav-link text-white" to="/">Cursos</Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link text-white" to="/trilhas">Trilhas</Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link text-white" to="/login">Login</Link>
+        </li>
+      </ul>
+    </div>
+  );
+};

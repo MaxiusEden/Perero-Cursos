@@ -1,19 +1,22 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useState } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
-import { Home } from './pages/Home';
-import { CourseDetails } from './pages/CourseDetails';
+import { Sidebar } from './components/Sidebar';
+import { AppRouter } from './routers/app.routers';
 
 function App() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+
   return (
     <Router>
-      <div className="min-vh-100 bg-light">
-        <Navbar />
-        <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/curso/:id" element={<CourseDetails />} />
-          </Routes>
-        </main>
+      <div className="d-flex vh-100 bg-light">
+        <Sidebar isOpen={isSidebarOpen} />
+        <div className="d-flex flex-column flex-grow-1 overflow-auto">
+          <Navbar onToggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)} />
+          <main className="p-3">
+            <AppRouter />
+          </main>
+        </div>
       </div>
     </Router>
   );

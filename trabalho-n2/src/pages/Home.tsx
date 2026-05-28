@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 
-// Placeholder data for courses
 const COURSES = [
   { id: 1, title: 'React para Iniciantes', description: 'Aprenda os fundamentos do React, hooks e muito mais.', image: 'https://placehold.co/600x400/212529/FFF?text=React', price: 'R$ 97,00' },
   { id: 2, title: 'TypeScript Avançado', description: 'Domine a tipagem estática no ecossistema JavaScript.', image: 'https://placehold.co/600x400/212529/FFF?text=TypeScript', price: 'R$ 147,00' },
@@ -12,7 +11,7 @@ export function Home() {
     <div className="container">
       <div className="row mb-4">
         <div className="col">
-          <h1 className="display-5">Cursos Disponíveis</h1>
+          <h1 className="display-5 text-black">Cursos Disponíveis</h1>
           <p className="lead text-muted">Aprenda as tecnologias mais demandadas no mercado.</p>
         </div>
       </div>

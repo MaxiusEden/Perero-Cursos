@@ -22,7 +22,7 @@ export function CourseDetails() {
               <p className="text-muted mb-0">Preview do Curso #{id}</p>
             </div>
           </div>
-          <h1 className="display-4">Detalhes do Curso #{id}</h1>
+          <h1 className="display-4 text-black">Detalhes do Curso #{id}</h1>
           <p className="lead">Esta é a página de detalhes do curso. O design é simples e direto ao ponto, conforme solicitado pelo professor.</p>
           
           <h4 className="mt-5 mb-3">Conteúdo Programático</h4>
